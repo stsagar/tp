@@ -1,0 +1,167 @@
+COPY
+- name: copy files to destination
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: copy src.txt as dest.txt in the same dir 
+      copy:
+        src: files/src.txt
+        dest: files/dest.txt
+      tags:
+        - simple_copy
+
+REMOVE USER
+
+- name: Remove the user 'johnd'
+  ansible.builtin.user:
+    name: johnd
+    state: absent
+    remove: yes
+
+PRINT NO.OF LINES
+
+## define it
+distro=("redhat" "debian" "gentoo")
+ 
+## get length of $distro array
+len=${#distro[@]}
+ 
+## Use bash for loop 
+for (( i=0; i<$len; i++ )); do echo "${distro[$i]}" ; done
+
+
+PRINT ALTERNATE LETTERS OF YOUR NAME
+
+#!/bin/sh
+filename='sample.txt'
+filelines=`cat $filename`
+while read -r line
+do
+  id= cut -c-5 $line
+  echo $id
+  #code for passing id to other script file as parameter
+done < "$filename"
+
+ANSIBLE SYNCHRONIZE EXAMPLE
+- hosts: ServerB
+  tasks:
+    - name: Transfer file from ServerA to ServerB
+      synchronize:
+        src: /path/on/server_a
+        dest: /path/on/server_b
+      delegate_to: ServerA
+
+DOCKERFILE EXAPLES
+
+FROM komljen/ubuntu
+MAINTAINER Alen Komljen <alen.komljen@live.com>
+
+ENV MONGO_VERSION 2.6.6
+
+RUN \
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
+  echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" \
+       > /etc/apt/sources.list.d/mongodb.list && \
+  apt-get update && \
+  apt-get -y install \
+          mongodb-org=${MONGO_VERSION} && \
+  rm -rf /var/lib/apt/lists/*
+
+VOLUME ["/data/db"]
+
+RUN rm /usr/sbin/policy-rc.d
+CMD ["/usr/bin/mongod"]
+
+EXPOSE 27017
+
+EX-2
+FROM komljen/ubuntu
+MAINTAINER Alen Komljen <alen.komljen@live.com>
+
+ENV USER root
+ENV PASS aiPeekai0AeZ2meephoolais7doo1thu
+
+RUN \
+  apt-get update && \
+  apt-get -y install \
+          mysql-server-5.5 && \
+  rm -rf /var/lib/apt/lists/*
+
+COPY my.cnf /etc/mysql/my.cnf
+COPY start.sh start.sh
+
+VOLUME ["/var/lib/mysql"]
+
+RUN rm /usr/sbin/policy-rc.d
+CMD ["/start.sh"]
+
+EXPOSE 3306
+
+EX-3
+FROM komljen/jdk-oracle
+MAINTAINER Alen Komljen <alen.komljen@live.com>
+
+ENV JAVA_HEAP_SIZE 512
+ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
+
+RUN \
+  apt-get update && \
+  apt-get -y install \
+          tomcat7 && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN sed -i "s|#JAVA_HOME=.*|JAVA_HOME=$JAVA_HOME|g" /etc/default/tomcat7
+RUN sed -i "s|-Xmx128m|-Xmx${JAVA_HEAP_SIZE}m|g" /etc/default/tomcat7
+
+EX-4
+
+FROM komljen/ubuntu
+MAINTAINER Alen Komljen <alen.komljen@live.com>
+
+RUN \
+  apt-get update && \
+  apt-get -y install \
+          apache2 && \
+  rm /var/www/html/index.html && \
+  rm -rf /var/lib/apt/lists/*
+
+
+
+
+- name: Creates directory
+  file:
+    path: /src/www
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+
+---
+- hosts: all
+tasks:
+- name: here we are using Ansible fetch module with some flat parameter
+fetch:
+src: /var/tmp/sample.txt
+dest: /tmp/file-{{ ansible_hostname }}
+flat: yes
+
+---
+- name: Playbook to test the ansible replace module
+hosts: linuxservers
+tasks:
+- name: Replace module test
+ansible.builtin.replace:
+path: /tmp/myfile.txt
+regexp: 'This'
+replace: 'That'
+
+- name: Testing lineinfile module
+hosts: test_group
+tasks:
+- name: "Insert a line in a file and if create the file if does not exist"
+become: yes
+lineinfile:
+path: /root/testing/test_file2
+line: "ansible_master"
+state: present
+backup: yes

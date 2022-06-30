@@ -1,0 +1,447 @@
+UST GLOBAL 
+1. Docker volumes ,network
+2. Kubernetes cluster ip and node port
+( shared screen and wrote in notepad )
+a. Manifest file for httpd and Ubuntu.
+b. Any declarative pipeline script real-time 
+c. Ansible play book.
+
+Infosys interview questions:
+1.how will u take up back up of ur Jenkins server in on premises server
+2.lots of questions based on production environment
+3.how will u deploy ur pod in production
+4.how will u deploy ur cluster in production
+5.lots of questions on CICD
+6.kubernetes architecture
+
+Company : UST GLOBAL
+
+1. branching strategy
+2.asked some scenario in branching strategy like test and dev
+3. Need to write manifest file as per his requirements
+4. Need to write docker file as per his requirements.
+5. Some questions on cicd 
+6. How to secure our Jenkins.
+7. Wats the shared libraries in Jenkins.
+8. How to secure the container
+9.wat is the difference between RUN and CMD
+10. How to handle the different database in Jenkins pipeline
+
+
+Company: Rakuten
+1.Kubernet architecture. 
+2.Write any manifest file in Kubernet to deploy an application. 
+3.Explain Kubernet Network. 
+3.What is name space.? 
+4.What is docker link. 
+5.Write any one docker file to create an image. 
+6.Difference between TCP & UDP
+7.Explain NAT & NACL. 
+8.Explain OSI model
+9.Write any groovy script. 
+10.Write a bash script to count the number of lines in array format. 
+11.How you implement load Balancing in Kubernet.
+12.U mentioned worked on project. What is your role in that?
+
+
+UST global ( first ipo)
+1. Jenkins pipeline how to fix errors 
+2. Maven uses in Jenkins 
+3. CI-CD 
+4. Security group 
+5. Lambda function components
+6. Cloud watch components 
+7. Route 53 
+8. Aws ui and cli mode
+9. Ansible play book overview 
+10. Ansible hosts file configuration 
+11. Kubernetes architecture 
+12. Kubernetes cluster
+
+
+Paytm
+1.Explain VCP
+2.Cicd 
+3.How u interested kubernetes with Jenkins in pipeline
+4.asked for S3 
+5.deployment strategy
+6.Ask about ansible playbook 
+Roles file structure
+
+
+Company: UST
+1.Introduction. 
+2.CI-CD pipeline. 
+3.Do you have any experience in jenkins libraries as well? 
+4.How you intigrate Git, kubernet, sonarqube &ansible with jenkins? 
+5.Where exactly your kubernet is installed. 
+6.Are you creating kubernet cluster? 
+7. kubernet architecture. 
+8.Asked to write docker file and groovy script by sharing screen. 
+9.Do you have any experience in terraform? 
+Explain efs, route53, security group. 
+10.Explain about cloud pipeline & cloud watch
+
+
+Cloud collabs 
+All questions on scenario based only
+1. Aws 
+2. Jenkins groove script 
+3. Ansible hosts 
+4. Kubernetes 
+5. About backup and updates (tags)
+6. Our company project 
+7. Defending team work
+
+
+Paytm 2nd round: 
+1.VPC 
+2.script
+3.asked about ansible
+4.asked to write Linux command 
+5. Asked about NACL
+
+
+Company:ACL 
+1.Kubernet architecture
+2.liveness & readiness
+3.Autoscalling in kubernets
+4.How you configured the config map. 
+5.Namespace in kubernet. 
+6.Ansible roles. 
+7.Purpose of using handlers. 
+8.Where you mention notify. 
+9.Write a shell script to get alternative letter of your name.
+10.Docker network. 
+11.Git commands.
+And some other questions on scenario based.
+
+
+Bigbasket 
+
+- cicd
+- How do you deploy kubernetes through cicd
+- how will u automate in jenkins
+- how do you check the logs of multiple containers 
+- aws mail and Sns 
+- aws subnet 
+- how will give internet access if public ip is not allowed 
+- iam role policy
+- aws security
+- shell scripting
+
+
+Broadridge 
+
+CICD 
+Multiple question on Jenkins 
+Branching strategy 
+How do u rectify if Instance failed 
+AWS S3 and VPC peering
+
+
+Company - Nous
+
+* More questions on Jenkins
+* Senario based on Questions on AWS 
+* Vpc architecture
+* Some Linux commands
+
+
+Techmahindra 
+
+Cicd scenario
+What is devops 
+What the difference between  ci and cd
+AWS 
+Kubernetes service and command 
+Git lab
+
+
+Intel 
+1.asked to write deployment file
+2.explain details about pod,cluster and container
+3.asked to write docker file for Tomcat
+
+
+Intel 
+1. Asked to write manifest file 
+2. Difference between cluster and nodeport and load balance 
+3.About docker file
+
+
+HCL
+
+Jenkins CI CD
+Docker commands
+Dockerfile syntax
+Difference between docker file and docker compose 
+Jenkins trigger
+
+
+Company - BETSOL
+
+*How to troubleshoot if the pod is not getting shedule
+*How u ll do VPC pearing
+* How to establish connection between 2 AWS Account
+*How to configure Autoscalling
+*Data deleted in S3 how u ll restore
+* What is cloud Beanstalk
+*Explain daemon set
+*Explain kubernates volume.
+* He asked about Azure
+*He asked GCP
+* Wat are the ways to encrypt the data in S3
+* Why we require Firewall and how does it work.
+* How can you save the data on root volume on EBS backed machine
+
+
+Bigbasket second round
+What is devops
+Cicd why we need it
+AWS vpc cloud watch 
+Scenario on aws
+Security based scenarios 
+Kubernetes logs pod
+Which one comes 1st ansible or kubernetes in pipeline 
+Ports 
+Docker scenario 
+Ansible modules 
+What is playbook why do we need to write playbook
+
+
+UST global 
+
+CI CD
+Load balancer and autoscling 
+VM and container difference 
+Writing playbook and roles to install Nginx and other applications 
+Shell script
+Git merge and rebase 
+Dockerfile 
+How do u debug if instance fails 
+Resolving issue in mysql database
+AWS services that I worked on
+
+
+tietoevry
+1.how to deploy cluster
+2.asked process to deploy webapp to cluster 
+3. Asked about pod and how pod are scheduled
+4.asked about deployment and services scenario based questions
+5.what are different levels of login to a container
+6.how many containers are there in ur current project
+7.how many worker nodes and master node in current project
+8.asked do u know to write manifest file for service and deployment
+9.asked about Config and secret 
+10.what is containerization 
+11.why containerization used 
+12.asked about docker swarm 
+13.docker compose 
+14.asked to docker images 
+15.where docker volume are stored
+16.how do u enable ipv 6 in docker and in file u enable
+17.where does containers data are stored 
+18. Load balancer in docker 
+19. Asked about Ingress 
+20. Asked about docker registers 
+21.asked about docker file
+22.what is build context in docker 
+23.asked about statefulset in kubernetes and when do we use
+24.asked explain the process of writing a docker file with given example
+25.asked about image tag 
+And few questions was based on scenarios.
+
+
+Leadschool 2nd round
+
+* Default port of DNS, MySQL
+* Whr log file stored in Linux
+* Some questions on containers 
+* Difference between ant and maven
+* More questions on Linux commands
+* What is i node of a file
+
+
+Company - Nous 
+
+Need to  write docker file and pipeline script for below mentioned senario
+
+a. Pull NGINx Image(nginx:1.18.0-alpine)
+b. Removes the existing conf from the image(Confs are in /etc/nginx)
+c. add your customized conf in the container.(lets say you have your mynginx.conf present in local)
+c. copy/add your local website content to container(user/share/nginx)(lets say you have index.html in local)
+d. Mounts the web content directory to local.
+e. Mounts the conf directory to local.
+g. Exposes http/https port
+h. adds a non root user to limit privilage acccess.
+i. Mention the working directory where your html content files are present
+i. Runs the nginx container at entrypoint
+
+
+MY SYSTEM TECHNOLOGY- 2nd Round
+* More questions on ansible.
+* Need to yml file as per senario mentioned below
+ 1: Create a file
+task 
+2: Copy the file (which is already in target node)
+task 
+3: start a service once the file has been successfully copied.
+
+* Questions on depolyment in kubernates.
+
+* More questions on AWS.
+
+* Whr u ll store all the manifest file and how to deploy to cloud in future.
+
+* Y we need docker and kubernates .
+
+* Need to write docker file
+
+
+Brillio 1st round : 
+1.write docker file 
+2.write ansible file 
+3.some scenario based questions on AWS 
+4.how to intergate kubernetes with Jenkins 
+5.questions on pod 
+6.some questions on docker container and images 
+7.asked few questions on S3 and lamdba functions
+8.asked to write shell script 
+2nd round: 
+1.questions on AWS EC2 instances
+2.how to intergate git with Jenkins
+3.explain CICD process 
+4.y do we need docker container 
+5. Y kubernetes is need
+
+
+Mysystem technologies
+
+CD steps 
+Kubernetes clusture 
+Jenkins security 
+Writing playbook for scenario 
+Monitoring tools and questions on AWS 
+Writing Docker file based on scenario
+
+
+Indium company
+
+1. introduction
+2. CICD flow
+3.layers of s3 bucket
+4. Autoscaling concept
+5. how to delete multiple images in a single command in docker
+6. how to delete pod in kuberenets
+7. I AM concepts
+8. cloud watch concept asked full
+9. how NACL works and its uses
+10. which are the monitoring tools you have worked
+11. have you written any autoscaling policy
+12. autoscaling is a step out or step in policy?
+13. jenkins default port
+14. explain Jfrog artifactory
+15. which pipeline you have worked on?
+
+
+company-ACL
+
+1. difference between git rebase and git revert, in what case you will use these commands?
+2. Branching strategy.
+3. git cherrypick, git stash
+4. explain anyone pipiline script
+5. shell script.
+6. explain the docker file as per the scenario
+7. what is payload
+8. Explain CICD flow
+9. difference between scripted and declarative pipeline.
+10. what are all the issues you have faced in deploying a production.
+11. what is docker compore, docker swarm
+12. explain kubernetes cluster
+13.explain git webhooks 
+14. docker commands
+15. kubernetes commands
+16. ansible modules.
+17. types of service in k8
+18. which type of parameter plugins you have used.
+
+
+company XXXXXXXX
+
+1. route 53
+2. VPC peering
+3. if you loose ansible pem file what will you do ?
+4. ansible strategies
+5. what strategies will you use in ansible playbook
+6. kubernetes daemon
+7. docker network
+8. difference between host and bridge network
+9. docker volumes- why do we need volumes ?
+10. aws RDS
+11. ansible roles- handlers
+12. how will you initiate ansible roles in playbook
+13. aws config map
+
+
+company-XXXXXXXXX
+
+1. introduction
+2. terraform
+3. copy files from one s3 bucket to another s3 bucket
+4. aws RDS
+5. if currnt application version fails fails while deploying through pipeline what measure will you take.
+6. delete docker images
+7. enter into running container
+8. job backup in jenkins
+9. wtite ansible playbook to copy ABC---- and take back up of it
+10. difference between restart and reload
+11. git fork
+12. git pull and git fetch
+13. how will you trigger a job through git cloud trial.
+
+
+company UST Global
+
+1. introduction 
+2. about CICD pipeline script
+3. write one ansible playbook
+4. how we are going to integrate kubernetes with jenkins pipeline for deploying our application 
+5. about aws services (Explain all the services which you worked)
+6. About VPC in detail.
+
+
+company XXXXXXXXXXXX
+
+1. you are unable to login to your instance but your can login to that instance what measure will you take to restore
+2. when will you use EBS and EFS.
+3. difference between S3, EBS & EFS.
+4. S3 standards
+5. you have 9 month old instance and you donot remember key what will you do to get it back
+6. block ip through linux commands.
+7. check the port your server or app is using through linux command
+8. one instance in ohio with VPC on same region and another instance on seoul copy the files or move them those to seoul instance
+9. docker sock
+10. daemon set
+11. scenario based question on load balancer
+12. scenario based question on CICD
+13. Ansible modules
+14. raw module
+15. IAM questions
+16. when you have two accounts how will you give permission to account B
+17. question on deployment
+18. scenario based question on kubernetes, manifest
+19. shell script 
+20. Namespace, c-group
+
+
+broad lidge-company
+
+1. how will you monitor CPU utilisation in AWS 
+2. basic linux commands
+3. Ansible basic
+4. shell scripting
+5. CICD
+6. Roles
+7. docker script
+

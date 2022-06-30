@@ -1,0 +1,332 @@
+if-statement.sh
+echo -e "Please provide Value below ten: \c"
+read -r value
+
+if [ $value -le 10 ]
+then
+echo "You provided value is $value"
+touch /tmp/test{1..100}.txt
+echo "Script completed successfully"
+fi
+
+if-else-statement.sh
+echo -e "Enter any value: \c"
+read -r a
+echo -e "Enter any value: \c"
+read -r b
+
+if [ $a -gt $b ]; then
+echo "$a is greater than $b"
+else
+echo "$b is greater than $a"
+fi
+
+if-elif-if.sh
+echo -e "Please Enter a Value: \c"
+read -r a
+echo -e "Please Enter b Value: \c"
+read -r b
+echo -e "Please Enter c Value: \c"
+read -r c
+echo -e "Please Enter d Value: \c"
+read -r d
+
+if [ $a -gt $b -a $a -gt $c -a $a -gt $d ]; then
+echo "$a a is big"
+elif [ $b -gt $c -a $b -gt $d ]; then
+echo "$b b is big"
+elif [ $c -gt $d ]; then
+echo "$c c is big"
+else
+echo "$d d is big"
+fi
+
+ifs.sh
+LINE=`cat /etc/passwd |grep $1`
+IFS=:
+set $LINE
+echo "User Name = $1"
+echo "Password = $2"
+echo "UID = $3"
+echo "GID = $4"
+echo "Description = $5"
+echo "Home Directory = $6 "
+echo " Current Shell = $7"
+
+while-loop.sh
+echo -e "Please provide one value: \c"
+read -r c
+i=1
+while [ $i -le 10 ]
+do
+b=`expr $c \* $i`
+echo "$c * $i = $b"
+i=`expr $i + 1`
+done
+
+
+variables.sh
+A=10
+Ba=23
+BA=45
+HOSTNAME=$(hostname)
+DATE=`date`
+1value=333
+False@Var=False
+Hyphen_a=WrongValue
+
+echo "Variable A Value: $A"
+echo "Variable Ba Vaule: $Ba"
+echo "Variable BA Vaule: $BA"
+echo "Variable HOST value: $HOSTNAME"
+echo "Variable DATE value: $DATE"
+echo "Wrong Variable 1value $1value"
+echo 'False @ Variable' $False@Var
+echo "hyphen-a Variable Value: $Hyphen_a"
+
+
+nestedif.sh
+echo -e "Please Enter Maths Marks: \c"
+read -r m
+echo -e "Please Enter Physics Marks: \c"
+read -r p
+echo -e "Please Enter Chemistry Marks: \c"
+read -r c
+
+if [ $m -ge 35 -a $p -ge 35 -a $c -ge 35 ]; then
+total=`expr $m + $p + $c`
+avg=`expr $total / 3`
+echo "Total Marks = $total"
+echo "Average Marks = $avg"
+      if [ $avg -ge 75 ]; then
+      echo "Congrats you got Distinction"
+      elif [ $avg -ge 60 -a $avg -lt 75 ]; then
+      echo "Congrats you got First Class"
+      elif [ $avg -ge 50 -a $avg -lt 60 ]; then
+      echo "You got second class"
+      elif [ $avg -ge 35 -a $avg -lt 50 ]; then
+      echo "You Got Third Class"
+      fi
+else
+echo "Sorry You Failed"
+fi
+
+
+for-loop.sh
+for server in `cat /scripts/servers`
+do
+ping -c 1 $server > /tmp/ping
+valid=`echo $?`
+if [ $valid -eq 0 ]; then
+echo "$server is up"
+else
+echo "$server is Down"
+fi
+done
+
+
+casestatement.sh
+echo -e "Enter a number: \c"
+read -r a
+echo -e "Enter b number: \c"
+read -r b
+
+echo "1. Sum of values"
+echo "2. Substraction"
+echo "3. Multiplication"
+echo "4. Division"
+echo "5. Modulo division"
+echo -e "Enter Your Choice from above menu: \c"
+read -r ch
+case $ch in
+1) echo "Sum of $a + $b = "`expr $a + $b`;;
+2) echo "Subsctraction = "`expr $a - $b`;;
+3) echo "Multiplication = "`expr $a \* $b`;;
+4) echo "Division = "`expr $a / $b`;;
+5) echo "Modulo Division = "`expr $a % $b`;;
+*) echo "Invalid Option provided"
+esac
+
+CPUALERT
+PATHS="/"
+HOSTNAME=$(hostname)
+CRITICAL=98
+WARNING=90
+CRITICALMail="YOUREMAILaddresS@Domain.com"
+MAILWAR="YOUREMAIL@Domain.in"
+mkdir -p /var/log/cputilhist
+LOGFILE=/var/log/cputilhist/cpusage-`date +%h%d%y`.log
+
+touch $LOGFILE
+
+for path in $PATHS
+do
+        CPULOAD=`top -b -n 2 -d1 | grep "Cpu(s)" | tail -n1 | awk '{print $2}' |awk -F. '{print $1}'`
+if [ -n $WARNING -a -n $CRITICAL ]; then
+if [ "$CPULOAD" -ge "$WARNING" -a "$CPULOAD" -lt "$CRITICAL" ]; then
+echo "`date "+%F %H:%M:%S"` WARNING - $CPULOAD on Host $HOSTNAME" >> $LOGFILE
+echo "Warning Cpuload $CPULOAD Host is $HOSTNAME" | mail -s "CPULOAD is Warning" $MAILWAR
+exit 1
+elif [ "$CPULOAD" -ge "$CRITICAL" ]; then
+echo "`date "+%F %H:%M:%S"` CRITICAL - $CPULOAD on Host $HOSTNAME" >> $LOGFILE
+echo "CRITICAL Cpuload $CPULOAD Host is $HOSTNAME" | mail -s "CPULOAD is CRITICAL" $CRITICALMail
+exit 2
+else
+echo "`date "+%F %H:%M:%S"` OK - $CPULOAD on $HOSTNAME" >> $LOGFILE
+exit 0
+fi
+fi
+done    
+
+DISKSPACE
+THRESHOULD=40
+mailto="root"
+HOSTNAME=$(hostname)
+
+for path in `/bin/df -h | grep -vE 'Filesystem|tmpfs' | awk '{print $5}' |sed 's/%//g'`
+do
+        if [ $path -ge $THRESHOULD ]; then
+        df -h | grep $path% >> /tmp/temp
+        fi
+done
+
+VALUE=`cat /tmp/temp | wc -l`
+        if [ $VALUE -ge 1 ]; then
+        mail -s "$HOSTNAME Disk Usage is Critical" $mailto < /tmp/temp
+        fi
+
+BACKUP
+
+function takebackup (){
+        if [ -f $1 ]; then
+        BACKUP="/home/aravi/$(basename ${1}).$(date +%F).$$"
+        echo "Backing up $1 to ${BACKUP}"
+        cp $1 $BACKUP
+        fi
+}
+
+takebackup /etc/hosts
+        if [ $? -eq 0 ]; then
+        echo "BAckup Success"
+        fi
+
+BODMAS
+echo -e "Please enter some value: \c"
+read -r a
+echo -e "Please enter another value: \c"
+read -r b
+
+echo "a+b value is $(($a+$b))"    #it will add both the values
+echo "a-b value is $(($a-$b))"    #it will subtract b form a 
+echo "axb value is $(($a*$b))"    #it will multiply both a and b
+echo "a/b value is $(($a/$b))"    #it will divide b from a
+echo "a%b value is $(($a%$b))"    #it will give the remainder when a is divided by b
+
+echo "Completed successfully"
+
+
+Logical-operators
+echo -e "Enter Your Maths Subject Marks: \c"
+read -r m
+echo -e "Enter Your Physics Subject Marks: \c"
+read -r p
+echo -e "Enter Your Chemistry Subject Marks: \c"
+read -r c
+
+if test $m -ge 35 -a $p -ge 35 -a $c -ge 35
+then
+echo "Congratulations, You have passed in all subjects"
+else
+echo "Sorry You not upto mark in one of the subject"
+fi
+
+
+ADD
+echo "addition of X+Y"
+echo "Enter X"
+read X
+echo "Enter Y"
+read Y
+echo "X+Y = $X+$Y = $[ X+Y ]"
+
+# END #
+
+ARITHMETIC
+echo -e "Enter value: \c"
+read -r a
+echo -e "Enter value: \c"
+read -r b
+
+echo "addition values `expr $a + $b`"
+echo "minus values `expr $a - $b`"
+echo "multiplied by values `expr $a \* $b`"
+echo "devided by values `expr $a / $b`"
+echo "remainder values `expr $a % $b`"
+echo "addition values `expr $a + $b`"
+
+echo "Completed Sucessfully"
+
+ARRAY
+fruits=( "Apple" "Orange" "Banana" "Sapota" )
+fruits[3]='Green Apple'
+for fruit in ${fruits[@]}
+do
+        echo "Fruit Name is $fruit"
+done
+
+echo "Number of Fruits in Bucket is" ${#fruits[@]}
+echo "All Fruits ${fruits[@]}"
+
+CASESTATEMENT
+echo -e "Enter a number: \c"
+read -r a
+echo -e "Enter b number: \c"
+read -r b
+
+echo "1. Sum of values"
+echo "2. Substraction"
+echo "3. Multiplication"
+echo "4. Division"
+echo "5. Modulo division"
+echo -e "Enter Your Choice from above menu: \c"
+read -r ch
+case $ch in
+1) echo "Sum of $a + $b = "`expr $a + $b`;;
+2) echo "Subsctraction = "`expr $a - $b`;;
+3) echo "Multiplication = "`expr $a \* $b`;;
+4) echo "Division = "`expr $a / $b`;;
+5) echo "Modulo Division = "`expr $a % $b`;;
+*) echo "Invalid Option provided"
+esac
+
+collectroothistory
+#!/bin/bash
+## Collect Root Commands History
+
+# Mailing List
+MAILLIST="YOUREMAIL@DOMAIN"
+
+# Log path
+AUDLOG="/rootcommands"
+
+cp /root/.bash_history /tmp/history
+sed -i 's/#//g' /tmp/history
+for i in `cat /tmp/history |grep ^[0-9]`
+do
+CONVT=`date -d @$i`
+sed -i "s/$i/$CONVT/g" /tmp/history
+done
+
+sed -i 'N;s/\n/ /' /tmp/history
+sleep 10
+
+/bin/touch ${AUDLOG}$HOSTNAME-root-hist.log.`date +%h%d%y`
+/bin/grep "$DATE" /tmp/history > ${AUDLOG}$HOSTNAME-root-hist.log.`date +%h%d%y`
+/bin/chmod 0440 ${AUDLOG}$HOSTNAME-root-hist.log.`date +%h%d%y`
+
+# Mail notification
+/bin/cat ${AUDLOG}$HOSTNAME-root-hist.log.`date +%h%d%y` |mail -s "HOST: $HOSTNAME - `whoami` Daily root Commands Log" ${MAILLIST}
+
+
+
+
